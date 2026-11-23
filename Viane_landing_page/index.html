@@ -30,6 +30,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -89,7 +90,6 @@
             </div>
 
         </section>
-
 
         <!-- ================= ABOUT ================= -->
 
@@ -217,8 +217,8 @@
                 <article class="service-card">
 
                     <img
-                        src="images/knotless.jpg"
-                        alt="Knotless braids"
+                        src="images/medium knotless braids.jpg"
+                        alt="Long copper knotless braids"
                     >
 
                     <div class="service-content">
@@ -245,8 +245,8 @@
                 <article class="service-card">
 
                     <img
-                        src="images/cornrows.jpg"
-                        alt="Cornrows"
+                        src="images/about.jpg"
+                        alt="Cornrows with long red braids"
                     >
 
                     <div class="service-content">
@@ -273,8 +273,8 @@
                 <article class="service-card">
 
                     <img
-                        src="images/wiginstall.jpg"
-                        alt="Wig installation"
+                        src="images/wiginstall - Copy.jpg"
+                        alt="Sleek bob wig installation"
                     >
 
                     <div class="service-content">
@@ -301,8 +301,8 @@
                 <article class="service-card">
 
                     <img
-                        src="images/wigstyling.jpg"
-                        alt="Wig styling"
+                        src="images/hero.jpg"
+                        alt="Long black hair styled with soft waves"
                     >
 
                     <div class="service-content">
@@ -357,8 +357,8 @@
                 <article class="service-card">
 
                     <img
-                        src="images/custom-styles.jpg"
-                        alt="Custom hairstyle"
+                        src="images/@𝐒𝐒𝐀𝐔𝐍𝐓𝐈𝐒𝐓_.jpg"
+                        alt="Long voluminous curled hairstyle"
                     >
 
                     <div class="service-content">
@@ -378,6 +378,56 @@
                     </div>
 
                 </article>
+
+            </div>
+
+        </section>
+
+        <!-- ================= STYLE GALLERY ================= -->
+
+        <section class="portfolio" id="gallery">
+
+            <div class="service-heading">
+
+                <p class="service-label">STYLE GALLERY</p>
+
+                <h2>A little inspiration for your next look.</h2>
+
+                <p>Explore a few of the styles Viané loves creating.</p>
+
+            </div>
+
+            <div class="portfolio-grid">
+
+                <figure class="portfolio-item">
+                    <img src="images/knotless.jpg" alt="Long knotless braid style">
+                    <figcaption>Knotless braids</figcaption>
+                </figure>
+
+                <figure class="portfolio-item">
+                    <img src="images/cornrows.jpg" alt="Neatly styled cornrows">
+                    <figcaption>Cornrow artistry</figcaption>
+                </figure>
+
+                <figure class="portfolio-item">
+                    <img src="images/wiginstall.jpg" alt="Finished wig installation">
+                    <figcaption>Wig installation</figcaption>
+                </figure>
+
+                <figure class="portfolio-item">
+                    <img src="images/wigstyling.jpg" alt="Styled wig with a polished finish">
+                    <figcaption>Wig styling</figcaption>
+                </figure>
+
+                <figure class="portfolio-item">
+                    <img src="images/natural-hair.jpg" alt="Natural hair style">
+                    <figcaption>Natural hair</figcaption>
+                </figure>
+
+                <figure class="portfolio-item">
+                    <img src="images/custom-styles.jpg" alt="Custom hairstyle created at Viané">
+                    <figcaption>Custom looks</figcaption>
+                </figure>
 
             </div>
 
@@ -635,6 +685,7 @@
                             placeholder="Enter your name"
                             required
                         >
+                        <small id="check"></small>
 
                     </div>
 
@@ -752,6 +803,16 @@
 
             </div>
 
+            <div class="footer-contact">
+
+                <h2>GET IN TOUCH</h2>
+
+                <p>Lagos, Nigeria</p>
+
+                <a href="mailto:hello@viane.com">hello@viane.com</a>
+
+            </div>
+
 
             <nav
                 class="footer-navigation"
@@ -779,6 +840,12 @@
                     </li>
 
                     <li>
+                        <a href="#gallery">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="#reviews">
                             Reviews
                         </a>
@@ -796,10 +863,14 @@
 
         </div>
 
-
-        <p class="copyright">
-            © 2026 Viané Hair Artistry. All rights reserved.
-        </p>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2026 Viané Hair Artistry. All rights reserved.
+            </p>
+            <a class="footer-back-to-top" href="#home">
+                Back to top <span aria-hidden="true">↑</span>
+            </a>
+        </div>
 
     </footer>
 
@@ -831,5 +902,73 @@
             menuToggle.textContent = '☰';
         });
     });
+
+    const form = document.querySelector("form");
+    const small = document.querySelector("#check");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = Object.fromEntries(new FormData(form));
+        console.log(data);
+        console.log(data.name);
+        console.log(data.email);
+
+
+        if (data.name.length < 4) {
+            console.log("name is too short");
+            small.textContent = "name is too short";
+            small.style.color = "red";
+            // small.style.fontSize = "2px";
+        } else {
+             console.log("name is good");
+               small.textContent = "name is good";
+            small.style.color = "green";
+                        // small.style.fontSize = "2px"
+        }
+        if (!data.message) {
+            console.log("message is unavailable");
+
+        } else if(data.message.length > 3) {
+             console.log("please enter more");
+        }
+        else {
+             console.log("please enter new message");
+        }
+        // const data2 =new FormData(form);
+        // console.log(data2);
+    })
+
+    const color = "blue";
+    switch (color) {
+        case "red":
+            console.log("color is red");
+
+            
+            break;
+        case "blue":
+         console.log("color is blue");
+        
+            break;
+        default:
+            break;
+    }
+
+    const details = ["morning","afternoon" , "night"];
+    const fruits = ["banana","orange" , "apple"];
+    console.log(details);
+    const length = details.length;
+    console.log(length);
+    details[1] = "day";
+    details[3] = "midnight";
+    console.log(details);
+    details.pop();
+    console.log(details);
+    const joined = details.concat(fruits);
+    console.log(joined);
+    const contains = details.includes('morning');
+    console.log(contains);
+    details.push('care');
+    console.log(details);
+    details.splice(1 , 1);
+    console.log(details);
 </script>
 </html>
